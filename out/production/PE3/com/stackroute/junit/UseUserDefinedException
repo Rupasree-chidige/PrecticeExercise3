@@ -1,0 +1,34 @@
+package com.stackroute.junit;
+
+ class NotEligibleToVoteException extends Exception {
+     NotEligibleToVoteException(String msg )
+    {
+        super(msg);
+    }
+}
+public class UseUserDefinedException {
+
+
+    public  void EligibleToVote() throws NotEligibleToVoteException {
+         int age=15;
+         if(age<18)
+             throw new NotEligibleToVoteException("Not eligible to vote");
+         else
+             System.out.println("Eligible To Vote");
+     }
+     public  static void main(String[] args) {
+        UseUserDefinedException useUserDefinedException=new UseUserDefinedException();
+
+        try{
+            useUserDefinedException.EligibleToVote();
+        }
+        catch (NotEligibleToVoteException e)
+        {
+            System.out.println(e.getMessage());
+        }
+        finally {
+            System.out.println("Done");
+        }
+    }
+
+}
